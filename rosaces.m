@@ -5,9 +5,8 @@ plt = plot(ax, NaN, NaN, 'k');
 axis(ax, 'equal', 'off')
 
 % Display a single image
-x = 56;
-y = 1453;
-
+x = 78;
+y = 854;
 % Table of x modulo y, the trick is to represent it using the circle equation for complex numbers
 in = [1:(y-1)].';
 cir = @(x) exp(-1i .* x .* 2 .* pi + 1i .* pi / 2);
