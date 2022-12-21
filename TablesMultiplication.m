@@ -80,7 +80,7 @@ set([h.PlotCircles h.PlotLines], 'Color',col)
 function toplot = ComputeTable(x,y)
 % On représente la table de x modulo y en reliant chaque nombre
 in = [1:(y-1)].';
-cir = @(x) exp(-i .* x .* 2 .*pi + i.*pi/2);
+cir = @(x) exp(-1i .* x .* 2 .*pi + 1i .* pi / 2);
 toplot = ([cir(in/y) cir(mod(in*x , y) ./ y )  in.*NaN].');
 toplot = toplot(:);
 
