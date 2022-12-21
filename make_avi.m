@@ -4,14 +4,16 @@ ax = axes(fig);
 plt = plot(ax, NaN, NaN, 'k');
 axis(ax, 'equal', 'off')
 
-xmin = 67; xmax = 100;
+xmin = 67; xmax = 78;
 y = 854;
-nframes = 32 * 64;
+nframes = 32 * 32;
 
 xx = linspace(xmin, xmax, nframes / 2);
 xx = [xx , fliplr(xx)];
 
-v = VideoWriter('vmult.avi');  % defaults framerate is 30
+v = VideoWriter('vmult.avi');
+
+v.FrameRate = 15; % defaults framerate is 30
 open(v);
 
 for k = 1 : nframes
@@ -33,3 +35,6 @@ for k = 1 : nframes
 end
 
 close(v);
+
+% following command using ffmpeg will make the video a more manageable size:
+% ffmpeg -i input.avi -c:v libx264 -preset slow -crf 18 -c:a copy -pix_fmt yuv420p output.mkv
